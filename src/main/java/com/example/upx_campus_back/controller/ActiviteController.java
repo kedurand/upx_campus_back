@@ -3,9 +3,10 @@ package com.example.upx_campus_back.controller;
 import com.example.upx_campus_back.model.Activite;
 import com.example.upx_campus_back.service.ActiviteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /*
@@ -16,9 +17,24 @@ import java.util.List;
 public class ActiviteController {
     private ActiviteService activiteService;
 
-    @GetMapping("/batiments")
-    public List<Activite> getBatiments(){
-        return activiteService.findAll();
+    @GetMapping("/activites")
+    public List<Activite> getActivites(){
+        return activiteService.getActivites();
     }
 
+    @PostMapping("/activites")
+    public Activite addActivite(@Valid @RequestBody Activite activite){
+        return activiteService.addActivite(activite);
+    }
+
+    @PutMapping("/activites/{activiteId}")
+    public Activite modifyActivite(@PathVariable Long activiteId,
+                                   @Valid @RequestBody Activite activiteRequest) {
+        return activiteService.modifyActivite(activiteId, activiteRequest);
+    }
+
+    @DeleteMapping("/activites/{activiteId}")
+    public ResponseEntity<?> deleteActivite(@PathVariable Long activiteId) {
+        return activiteService.deleteActivite(activiteId);
+    }
 }
