@@ -17,5 +17,5 @@ import org.springframework.stereotype.Repository;
 // https://stackoverflow.com/questions/49316751/spring-data-jpa-findone-change-to-optional-how-to-use-this/49317013
 @Repository
 public interface ActiviteRepository extends JpaRepository<Activite, Long> {
-    public Activite findById(Long id);
+    //public Activite findById(Long id);
 }

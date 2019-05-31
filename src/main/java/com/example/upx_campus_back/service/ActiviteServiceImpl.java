@@ -29,23 +29,33 @@ public class ActiviteServiceImpl implements ActiviteService{
 
     @Override
     public Activite modifyActivite(Long activiteId, Activite activiteRequest) {
-        Activite activite = activiteRepository.findById(activiteId);
-        tedoqjdoqspjdo^q
-        return activiteRepository.findById(activiteId)
-                    .map(
-                        question -> {
-                            question.setTitle(questionRequest.getTitle());
-                            question.setDescription(questionRequest.getDescription());
-                        return questionRepository.save(question);
-                    }).orElseThrow(() -> new ResourceNotFoundException("Question not found with id " + questionId));
+        return null;
     }
 
     @Override
     public ResponseEntity<?> deleteActivite(Long activiteId) {
-        return questionRepository.findById(questionId)
-                .map(question -> {
-                    questionRepository.delete(question);
-                    return ResponseEntity.ok().build();
-                }).orElseThrow(() -> new ResourceNotFoundException("Question not found with id " + questionId));
+        return null;
     }
+
+//    @Override
+//    public Activite modifyActivite(Long activiteId, Activite activiteRequest) {
+//        Activite activite = activiteRepository.findById(activiteId);
+//        tedoqjdoqspjdo^q
+//        return activiteRepository.findById(activiteId)
+//                    .map(
+//                        question -> {
+//                            question.setTitle(questionRequest.getTitle());
+//                            question.setDescription(questionRequest.getDescription());
+//                        return questionRepository.save(question);
+//                    }).orElseThrow(() -> new ResourceNotFoundException("Question not found with id " + questionId));
+//    }
+//
+//    @Override
+//    public ResponseEntity<?> deleteActivite(Long activiteId) {
+//        return questionRepository.findById(questionId)
+//                .map(question -> {
+//                    questionRepository.delete(question);
+//                    return ResponseEntity.ok().build();
+//                }).orElseThrow(() -> new ResourceNotFoundException("Question not found with id " + questionId));
+//    }
 }
