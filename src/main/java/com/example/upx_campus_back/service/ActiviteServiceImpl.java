@@ -9,6 +9,7 @@ import java.util.List;
 
 /*
     Permet d'ajouter des controls supplémentaire vis à vis du métier
+    https://openclassrooms.com/fr/courses/4668056-construisez-des-microservices/5123366-utilisez-jpa-pour-communiquer-avec-une-base-de-donnees
  */
 public class ActiviteServiceImpl implements ActiviteService{
     // Il n'utilise que l'interface, pas besoin d'implémentation
