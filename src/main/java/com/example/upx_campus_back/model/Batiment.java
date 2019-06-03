@@ -3,6 +3,7 @@ package com.example.upx_campus_back.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Entity
 @Table(name ="batiment")
@@ -21,16 +22,19 @@ public class Batiment extends AuditModel{
     @Column(columnDefinition = "text")
     private String description;
 
+    @ManyToMany
+    private Set<Activite> activites;
+
     public Batiment() {
     }
 
-    public Batiment(@NotBlank
-                    @Size(min = 3, max = 100) String nom,
-                    float lat, float lng, String description) {
+    public Batiment(@NotBlank @Size(min = 3, max = 100) String nom, float lat,
+                    float lng, String description, Set<Activite> activites) {
         this.nom = nom;
         this.lat = lat;
         this.lng = lng;
         this.description = description;
+        this.activites = activites;
     }
 
     public Long getId() {
@@ -71,6 +75,14 @@ public class Batiment extends AuditModel{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Set<Activite> getActivites() {
+        return activites;
+    }
+
+    public void setActivites(Set<Activite> activites) {
+        this.activites = activites;
     }
 }
 

@@ -5,6 +5,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "activite")
@@ -22,12 +23,16 @@ public class Activite extends AuditModel{
     @JsonIgnore
     private Thematique thematique;
 
+    @ManyToMany(mappedBy = "activites")
+    private Set<Batiment> batiments;
+
     public Activite() {
     }
 
-    public Activite(String text, Thematique thematique) {
+    public Activite(String text, Thematique thematique, Set<Batiment> batiments) {
         this.text = text;
         this.thematique = thematique;
+        this.batiments = batiments;
     }
 
     public Long getId() {
@@ -52,5 +57,13 @@ public class Activite extends AuditModel{
 
     public void setThematique(Thematique thematique) {
         this.thematique = thematique;
+    }
+
+    public Set<Batiment> getBatiments() {
+        return batiments;
+    }
+
+    public void setBatiments(Set<Batiment> batiments) {
+        this.batiments = batiments;
     }
 }
