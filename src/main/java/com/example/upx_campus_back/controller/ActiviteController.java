@@ -13,16 +13,15 @@ import java.util.List;
     Chaque requête REST va lancer l'action du service associé
 */
 @RestController
-@RequestMapping("/activites")
 public class ActiviteController {
     private ActiviteService activiteService;
 
-    @GetMapping
+    @RequestMapping(value = "/activites", method = RequestMethod.GET)
     public List<Activite> getActivites(){
         return activiteService.getActivites();
     }
 
-    @PostMapping
+  /*  @PostMapping
     public Activite addActivite(@Valid @RequestBody Activite activite){
         return activiteService.addActivite(activite);
     }
@@ -36,5 +35,5 @@ public class ActiviteController {
     @DeleteMapping("/{activiteId}")
     public ResponseEntity<?> deleteActivite(@PathVariable Long activiteId) {
         return activiteService.deleteActivite(activiteId);
-    }
+    }*/
 }
