@@ -21,7 +21,7 @@ public class Activite extends AuditModel{
     private String text;
 
     @ManyToMany(mappedBy = "activites")
-    @JsonIgnore
+    @JsonIgnore //Très important pour éviter cycle infini dans le json !
     private Set<Thematique> thematiques;
 
     @ManyToMany(mappedBy = "activites")

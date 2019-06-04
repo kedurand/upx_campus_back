@@ -24,6 +24,8 @@ public class Batiment extends AuditModel {
     private float lat;
     private float lng;
 
+    private Byte []image;
+
     @Column(columnDefinition = "text")
     private String description;
 
@@ -34,6 +36,16 @@ public class Batiment extends AuditModel {
      * Instantiates a new Batiment.
      */
     public Batiment() {
+    }
+
+    public Batiment(@NotBlank @Size(min = 3, max = 100) String nom, float lat, float lng,
+                    Byte[] image, String description, Set<Activite> activites) {
+        this.nom = nom;
+        this.lat = lat;
+        this.lng = lng;
+        this.image = image;
+        this.description = description;
+        this.activites = activites;
     }
 
     /**
@@ -124,6 +136,14 @@ public class Batiment extends AuditModel {
      */
     public void setLng(float lng) {
         this.lng = lng;
+    }
+
+    public Byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(Byte[] image) {
+        this.image = image;
     }
 
     /**
