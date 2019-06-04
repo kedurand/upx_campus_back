@@ -16,7 +16,7 @@ public class Thematique extends AuditModel {
     @Column(columnDefinition = "text")
     private String text;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.MERGE)
     private Set<Activite> activites;
 
 

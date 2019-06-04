@@ -27,7 +27,7 @@ public class Batiment extends AuditModel {
     @Column(columnDefinition = "text")
     private String description;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = {CascadeType.MERGE})
     private Set<Activite> activites;
 
     /**
