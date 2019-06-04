@@ -1,6 +1,7 @@
 package com.example.upx_campus_back.service;
 
 import com.example.upx_campus_back.model.Activite;
+import org.jvnet.hk2.annotations.Service;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;

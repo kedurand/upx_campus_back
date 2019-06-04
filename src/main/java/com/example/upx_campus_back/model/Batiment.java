@@ -5,6 +5,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Set;
 
+
+// https://hellokoding.com/jpa-many-to-many-relationship-mapping-example-with-spring-boot-maven-and-mysql/
 @Entity
 @Table(name ="batiment")
 public class Batiment extends AuditModel{
@@ -22,7 +24,7 @@ public class Batiment extends AuditModel{
     @Column(columnDefinition = "text")
     private String description;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private Set<Activite> activites;
 
     public Batiment() {

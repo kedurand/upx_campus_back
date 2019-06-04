@@ -17,21 +17,20 @@ public class Activite extends AuditModel{
     @Column(columnDefinition = "text")
     private String text;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "thematique_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @ManyToMany(mappedBy = "activites")
     @JsonIgnore
-    private Thematique thematique;
+    private Set<Thematique> thematiques;
 
     @ManyToMany(mappedBy = "activites")
+    @JsonIgnore
     private Set<Batiment> batiments;
 
     public Activite() {
     }
 
-    public Activite(String text, Thematique thematique, Set<Batiment> batiments) {
+    public Activite(String text, Set<Thematique> thematiques, Set<Batiment> batiments) {
         this.text = text;
-        this.thematique = thematique;
+        this.thematiques = thematiques;
         this.batiments = batiments;
     }
 
@@ -51,12 +50,12 @@ public class Activite extends AuditModel{
         this.text = text;
     }
 
-    public Thematique getThematique() {
-        return thematique;
+    public Set<Thematique> getThematiques() {
+        return thematiques;
     }
 
-    public void setThematique(Thematique thematique) {
-        this.thematique = thematique;
+    public void setThematiques(Set<Thematique> thematiques) {
+        this.thematiques = thematiques;
     }
 
     public Set<Batiment> getBatiments() {

@@ -4,6 +4,7 @@ import com.example.upx_campus_back.model.Activite;
 import com.example.upx_campus_back.repository.ActiviteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
     Permet d'ajouter des controls supplémentaire vis à vis du métier
     https://openclassrooms.com/fr/courses/4668056-construisez-des-microservices/5123366-utilisez-jpa-pour-communiquer-avec-une-base-de-donnees
  */
+@Component
 public class ActiviteServiceImpl implements ActiviteService{
     // Il n'utilise que l'interface, pas besoin d'implémentation
     // Autowired permet de le construire automatiquement ?
