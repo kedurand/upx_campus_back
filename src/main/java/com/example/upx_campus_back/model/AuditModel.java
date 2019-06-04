@@ -9,6 +9,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * The type Audit model.
+ */
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(
@@ -26,18 +29,38 @@ public abstract class AuditModel implements Serializable {
     @LastModifiedDate
     private Date updatedAt;
 
+    /**
+     * Gets created at.
+     *
+     * @return the created at
+     */
     public Date getCreatedAt() {
         return createdAt;
     }
 
+    /**
+     * Sets created at.
+     *
+     * @param createdAt the created at
+     */
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 
+    /**
+     * Gets updated at.
+     *
+     * @return the updated at
+     */
     public Date getUpdatedAt() {
         return updatedAt;
     }
 
+    /**
+     * Sets updated at.
+     *
+     * @param updatedAt the updated at
+     */
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }

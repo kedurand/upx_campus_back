@@ -6,10 +6,13 @@ import javax.validation.constraints.Size;
 import java.util.Set;
 
 
+/**
+ * The type Batiment.
+ */
 // https://hellokoding.com/jpa-many-to-many-relationship-mapping-example-with-spring-boot-maven-and-mysql/
 @Entity
-@Table(name ="batiment")
-public class Batiment extends AuditModel{
+@Table(name = "batiment")
+public class Batiment extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // On utilise le géénrateur PostgreSQL
     private Long id;
@@ -27,9 +30,21 @@ public class Batiment extends AuditModel{
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<Activite> activites;
 
+    /**
+     * Instantiates a new Batiment.
+     */
     public Batiment() {
     }
 
+    /**
+     * Instantiates a new Batiment.
+     *
+     * @param nom         the nom
+     * @param lat         the lat
+     * @param lng         the lng
+     * @param description the description
+     * @param activites   the activites
+     */
     public Batiment(@NotBlank @Size(min = 3, max = 100) String nom, float lat,
                     float lng, String description, Set<Activite> activites) {
         this.nom = nom;
@@ -39,50 +54,110 @@ public class Batiment extends AuditModel{
         this.activites = activites;
     }
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     * Gets nom.
+     *
+     * @return the nom
+     */
     public String getNom() {
         return nom;
     }
 
+    /**
+     * Sets nom.
+     *
+     * @param nom the nom
+     */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
+    /**
+     * Gets lat.
+     *
+     * @return the lat
+     */
     public float getLat() {
         return lat;
     }
 
+    /**
+     * Sets lat.
+     *
+     * @param lat the lat
+     */
     public void setLat(float lat) {
         this.lat = lat;
     }
 
+    /**
+     * Gets lng.
+     *
+     * @return the lng
+     */
     public float getLng() {
         return lng;
     }
 
+    /**
+     * Sets lng.
+     *
+     * @param lng the lng
+     */
     public void setLng(float lng) {
         this.lng = lng;
     }
 
+    /**
+     * Gets description.
+     *
+     * @return the description
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Sets description.
+     *
+     * @param description the description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * Gets activites.
+     *
+     * @return the activites
+     */
     public Set<Activite> getActivites() {
         return activites;
     }
 
+    /**
+     * Sets activites.
+     *
+     * @param activites the activites
+     */
     public void setActivites(Set<Activite> activites) {
         this.activites = activites;
     }

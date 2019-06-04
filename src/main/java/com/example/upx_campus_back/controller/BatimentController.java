@@ -1,9 +1,77 @@
 package com.example.upx_campus_back.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.upx_campus_back.model.Batiment;
+import com.example.upx_campus_back.service.BatimentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.util.List;
+
+/**
+ * The type Batiment controller.
+ */
 @RestController
+@RequestMapping("/batiments")
 public class BatimentController {
+    /**
+     * The Batiment service.
+     */
+    @Autowired
+    BatimentService batimentService;
 
+    /**
+     * Get batiments list.
+     *
+     * @return the list
+     */
+    @GetMapping
+    public List<Batiment> getBatiments() {
+        return batimentService.getBatiments();
+    }
+
+    /**
+     * Get batiment batiment.
+     *
+     * @param batimentId the batiment id
+     * @return the batiment
+     */
+    @GetMapping("/{batimentId}")
+    public Batiment getBatiment(@PathVariable Long batimentId) {
+        return batimentService.getBatiment(batimentId);
+    }
+
+    /**
+     * Add batiment batiment.
+     *
+     * @param batiment the batiment
+     * @return the batiment
+     */
+    @PostMapping
+    public Batiment addBatiment(@Valid @RequestBody Batiment batiment) {
+        return batimentService.addBatiment(batiment);
+    }
+
+    /**
+     * Modify batiment batiment.
+     *
+     * @param batimentId      the batiment id
+     * @param batimentRequest the batiment request
+     * @return the batiment
+     */
+    @PutMapping("/{batimentId}")
+    public Batiment modifyBatiment(@PathVariable Long batimentId,
+                                   @Valid @RequestBody Batiment batimentRequest) {
+        return batimentService.modifyBatiment(batimentId, batimentRequest);
+    }
+
+    /**
+     * Delete batiment.
+     *
+     * @param batimentId the batiment id
+     */
+    @DeleteMapping("/{batimentId}")
+    public void deleteBatiment(@PathVariable Long batimentId) {
+        batimentService.deleteBatiment(batimentId);
+    }
 }
