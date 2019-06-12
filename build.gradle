@@ -21,7 +21,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	runtimeOnly 'org.postgresql:postgresql'
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	compile 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	compile 'javax.servlet:servlet-api:3.0-alpha-1'
+
 }
