@@ -17,12 +17,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Order(1)
 public class APISecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Value("Authorization")
+    @Value("${authorization}")
     private String principalRequestHeader;
 
     // TODO Ne pas le mettre en dur, prévoir un fichier de conf Gradle comme front
     // Ajouter le auhtorization key dans les requetes REST
-    @Value("upx_campus1")
+    @Value("${security.signing-key}")
     private String principalRequestValue;
 
     @Override
