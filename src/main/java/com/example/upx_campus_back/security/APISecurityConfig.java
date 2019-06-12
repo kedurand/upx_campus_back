@@ -20,10 +20,9 @@ public class APISecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("Authorization")
     private String principalRequestHeader;
 
-    // TODO Ne pas le mettre en dur, prévoir un fichier de conf
+    // TODO Ne pas le mettre en dur, prévoir un fichier de conf Gradle comme front
     // Ajouter le auhtorization key dans les requetes REST
-
-    @Value("upxkey")
+    @Value("upx_campus1")
     private String principalRequestValue;
 
     @Override
