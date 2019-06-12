@@ -2,9 +2,11 @@ package com.example.upx_campus_back.service;
 
 import com.example.upx_campus_back.model.Batiment;
 import com.example.upx_campus_back.repository.BatimentRepository;
+import com.example.upx_campus_back.util.ImageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Base64;
 import java.util.List;
 
 /**
@@ -25,6 +27,21 @@ public class BatimentServiceImpl implements BatimentService {
     @Override
     public Batiment getBatiment(Long batimentId) {
         return batimentRepository.findById(batimentId).orElse(null);
+    }
+
+    @Override
+    public byte[] getBatimentImage(Long batimentId) {
+        Batiment bat = batimentRepository.findById(batimentId).orElse(null);
+        // Encodage en string via une base64 des byte de l'image :)
+        /*  Base64 encoding schemes are commonly used when there is a need to encode binary data
+            that needs be stored and transferred over media that are designed to deal with textual data.
+            This is to ensure that the data remains intact without modification during transport.
+         */
+        byte[] encoded = new byte[0];
+        if (bat != null) {
+            encoded = Base64.getEncoder().encode(ImageUtil.getByteFromImage(bat.getImage()));
+        }
+        return encoded;
     }
 
     @Override

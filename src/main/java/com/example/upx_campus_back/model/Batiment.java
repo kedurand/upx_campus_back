@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.awt.*;
+import java.util.Arrays;
 import java.util.Set;
 
 
@@ -31,9 +32,6 @@ public class Batiment extends AuditModel {
     // Ne va pas renvoyer en JSON le path de l'image
     @JsonIgnore
     private String image;
-    // Ne va pas le persister en base de données
-    @Transient
-    private Byte[] imageB;
 
     @Column(columnDefinition = "text")
     private String description;
@@ -48,12 +46,12 @@ public class Batiment extends AuditModel {
     }
 
     public Batiment(@NotBlank @Size(min = 3, max = 100) String nom, float lat, float lng,
-                    Byte[] image, String description, Set<Activite> activites) {
+                    String image, String description, Set<Activite> activites) {
         this.nom = nom;
         this.lat = lat;
         this.lng = lng;
         // TODO: Prévoir de coder le comportement d'enregistrement de l'image en back si on fait un post depuis client
-        this.imageB = image;
+        this.image = image;
         this.description = description;
         this.activites = activites;
     }
@@ -154,14 +152,6 @@ public class Batiment extends AuditModel {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public byte[] getImageB() {
-        return ImageUtil.getByteFromImage(this.image);
-    }
-
-    public void setImageB(byte[] imageB) {
-        this.image = ImageUtil.convertByteArrayToImage(imageB);
     }
 
     /**

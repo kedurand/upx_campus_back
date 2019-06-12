@@ -41,6 +41,12 @@ public class BatimentController {
         return batimentService.getBatiment(batimentId);
     }
 
+
+    @GetMapping(path = "/image/{batimentId}")
+    public byte[] getBatimentImage(@PathVariable Long batimentId){
+        return batimentService.getBatimentImage(batimentId);
+    }
+
     /**
      * Add batiment batiment.
      *

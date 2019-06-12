@@ -23,6 +23,8 @@ public interface BatimentService {
      */
     Batiment getBatiment(Long batimentId);
 
+    byte[] getBatimentImage(Long batimentId);
+
     /**
      * Add batiment batiment.
      *
@@ -46,4 +48,5 @@ public interface BatimentService {
      * @param batimentId the batiment id
      */
     void deleteBatiment(Long batimentId);
+
 }
