@@ -4,6 +4,7 @@ import com.example.upx_campus_back.model.Activite;
 import com.example.upx_campus_back.model.Batiment;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -54,6 +55,6 @@ public interface ActiviteService {
      *
      * @param activiteId the activite id
      */
-    List<Long> getBatiments(Long activiteId);
+    List<Batiment> getBatiments(long idActivite);
 
 }

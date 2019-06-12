@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Component;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -58,8 +59,11 @@ public class ActiviteServiceImpl implements ActiviteService {
     }
 
     @Override
-    public List<Long> getBatiments(Long activiteId){
-        return activiteRepository.findBatimentsByActivite(activiteId);
+    public List<Batiment> getBatiments(long idActivite){
+
+        return (List<Batiment>)(Object)activiteRepository.findBatimentsByActivite(idActivite) ;
+
+
     }
 
 }

@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collection;
 import java.util.List;
 
 // Utilise un framework de Spring, le "Spring Data JPA"
@@ -32,8 +33,10 @@ public interface ActiviteRepository extends JpaRepository<Activite, Long> {
      * @param activiteId the activite id
      * @return Une liste d'entier
      */
-    @Query(value = "SELECT batiments_id FROM batiment_activites b WHERE b.activites_id = ?1", nativeQuery = true)
-     List<Long> findBatimentsByActivite(Long activiteId);
+
+    @Query(value = "SELECT * FROM batiment WHERE id IN (SELECT batiments_id FROM batiment_activites b WHERE b.activites_id = ?1)", nativeQuery = true)
+    /*@Query(value = "SELECT * FROM batiment", nativeQuery = true)*/
+    List<Object> findBatimentsByActivite(long idActivite);
 
 
 }

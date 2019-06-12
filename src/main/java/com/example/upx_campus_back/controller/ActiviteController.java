@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Collection;
 import java.util.List;
 
 /*
@@ -56,9 +57,9 @@ public class ActiviteController {
      * @param activiteId the activite id
      * @return Une liste d'entier
      */
-    @GetMapping("/batimentsDeActivite/{activiteId}")
-    public List<Long> getBatiments(@PathVariable Long activiteId){
-        return activiteService.getBatiments(activiteId);
+    @GetMapping("/batimentsDeActivite/{idA}")
+    public List<Batiment> getBatiments(@PathVariable long idA){
+        return activiteService.getBatiments(idA);
     }
 
     /**
