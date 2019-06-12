@@ -1,8 +1,12 @@
 package com.example.upx_campus_back.model;
 
+import com.example.upx_campus_back.util.ImageUtil;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.awt.*;
 import java.util.Set;
 
 
@@ -24,7 +28,12 @@ public class Batiment extends AuditModel {
     private float lat;
     private float lng;
 
-    private Byte []image;
+    // Ne va pas renvoyer en JSON le path de l'image
+    @JsonIgnore
+    private String image;
+    // Ne va pas le persister en base de données
+    @Transient
+    private Byte[] imageB;
 
     @Column(columnDefinition = "text")
     private String description;
@@ -43,7 +52,8 @@ public class Batiment extends AuditModel {
         this.nom = nom;
         this.lat = lat;
         this.lng = lng;
-        this.image = image;
+        // TODO: Prévoir de coder le comportement d'enregistrement de l'image en back si on fait un post depuis client
+        this.imageB = image;
         this.description = description;
         this.activites = activites;
     }
@@ -138,12 +148,20 @@ public class Batiment extends AuditModel {
         this.lng = lng;
     }
 
-    public Byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Byte[] image) {
+    public void setImage(String image) {
         this.image = image;
+    }
+
+    public byte[] getImageB() {
+        return ImageUtil.getByteFromImage(this.image);
+    }
+
+    public void setImageB(byte[] imageB) {
+        this.image = ImageUtil.convertByteArrayToImage(imageB);
     }
 
     /**
