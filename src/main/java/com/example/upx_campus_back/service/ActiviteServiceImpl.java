@@ -1,8 +1,11 @@
 package com.example.upx_campus_back.service;
 
 import com.example.upx_campus_back.model.Activite;
+import com.example.upx_campus_back.model.Batiment;
 import com.example.upx_campus_back.repository.ActiviteRepository;
+import com.example.upx_campus_back.repository.BatimentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -20,6 +23,7 @@ public class ActiviteServiceImpl implements ActiviteService {
     // Autowired permet de le construire automatiquement ?
     @Autowired
     private ActiviteRepository activiteRepository;
+
 
     @Override
     public List<Activite> getActivites() {
@@ -52,4 +56,10 @@ public class ActiviteServiceImpl implements ActiviteService {
     public void deleteActivite(Long activiteId) {
         activiteRepository.deleteById(activiteId);
     }
+
+    @Override
+    public List<Long> getBatiments(Long activiteId){
+        return activiteRepository.findBatimentsByActivite(activiteId);
+    }
+
 }

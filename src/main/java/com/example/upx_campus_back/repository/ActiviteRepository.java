@@ -1,8 +1,12 @@
 package com.example.upx_campus_back.repository;
 
 import com.example.upx_campus_back.model.Activite;
+import com.example.upx_campus_back.model.Batiment;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 // Utilise un framework de Spring, le "Spring Data JPA"
 // Besoin d'uniquement d'étendre la classe JPA avec la classe et le type de l'ID
@@ -17,7 +21,19 @@ import org.springframework.stereotype.Repository;
  * The interface Activite repository.
  */
 // Comment utilisé "Optional" en Java:
-// https://stackoverflow.com/questions/49316751/spring-data-jpa-findone-change-to-optional-how-to-use-this/49317013
+// https://stackoverflow.com/questions/49316751/spring-data-jpa-find
+// one-change-to-optional-how-to-use-this/49317013
 @Repository
 public interface ActiviteRepository extends JpaRepository<Activite, Long> {
+
+    /**
+     * Get Liste Batiments de l'activité
+     *
+     * @param activiteId the activite id
+     * @return Une liste d'entier
+     */
+    @Query(value = "SELECT batiments_id FROM batiment_activites b WHERE b.activites_id = ?1", nativeQuery = true)
+     List<Long> findBatimentsByActivite(Long activiteId);
+
+
 }
