@@ -1,5 +1,5 @@
 # upx_campus_back
-Partie back-end de l'application de localisation des ressources de l'université Paris Nanterre.
+Partie BACK-END de l'application de localisation des ressources de l'université Paris Nanterre.
 
 ## Récupération de l'application
 - Clonez sur votre IDE, de préférence IntelliJ dans sa version Ultimate (licence gratuite pour étudiant).
