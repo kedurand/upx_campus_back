@@ -1,6 +1,7 @@
 package com.example.upx_campus_back.controller;
 
 
+import com.example.upx_campus_back.model.Batiment;
 import com.example.upx_campus_back.model.Thematique;
 import com.example.upx_campus_back.service.ThematiqueService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,18 @@ public class ThematiqueController {
     public Thematique getThematique(@PathVariable Long thematiqueId) {
         return thematiqueService.getThematique(thematiqueId);
     }
+
+    /**
+     * Get Liste Batiments de la thematique
+     *
+     * @param idT Id de la thematique
+     * @return Une liste d'entier
+     */
+    @GetMapping("/batimentsDeThematique/{idT}")
+    public List<Batiment> getBatiments(@PathVariable long idT){
+        return thematiqueService.getBatiments(idT);
+    }
+
 
     /**
      * Add thematique thematique.

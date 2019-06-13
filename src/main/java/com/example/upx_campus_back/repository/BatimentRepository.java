@@ -18,9 +18,21 @@ public interface BatimentRepository extends JpaRepository<Batiment, Long> {
     /**
      * Get Liste Batiments de l'activité
      *
-     * @param activiteId the activite id
+     * @param idActivite the activite id
      * @return Une liste d'entier
      */
     @Query(value = "SELECT * FROM batiment WHERE id IN (SELECT batiments_id FROM batiment_activites b WHERE b.activites_id = ?1)", nativeQuery = true)
     List<Batiment> findBatimentsByActivite(long idActivite);
+
+
+    /**
+     * Get Liste Batiments de l'activité
+     *
+     * @param idThematique the activite id
+     * @return Une liste d'entier
+     */
+    @Query(value = "SELECT * FROM batiment WHERE id IN (SELECT batiments_id FROM batiment_activites b WHERE b.activites_id in (Select activites_id from thematique_activites where thematiques_id = ?1))", nativeQuery = true)
+    List<Batiment> findBatimentsByThematique(long idThematique);
+
+
 }

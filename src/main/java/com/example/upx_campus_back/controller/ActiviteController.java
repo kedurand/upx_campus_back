@@ -54,7 +54,7 @@ public class ActiviteController {
     /**
      * Get Liste Batiments de l'activité
      *
-     * @param activiteId the activite id
+     * @param idA the activite id
      * @return Une liste d'entier
      */
     @GetMapping("/batimentsDeActivite/{idA}")

@@ -1,5 +1,6 @@
 package com.example.upx_campus_back.service;
 
+import com.example.upx_campus_back.model.Batiment;
 import com.example.upx_campus_back.model.Thematique;
 
 import java.util.List;
@@ -46,4 +47,12 @@ public interface ThematiqueService {
      * @param thematiqueId the thematique id
      */
     void deleteThematique(Long thematiqueId);
+
+    /**
+     * Recuperer la liste des batiments appartenant à la thematique courante courante
+     *
+     * @param idThematique the thematique id
+     */
+    List<Batiment> getBatiments(long idThematique);
+
 }
