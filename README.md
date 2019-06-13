@@ -12,6 +12,9 @@ Partie back-end de l'application de localisation des ressources de l'université
 - Testez le serveur avec des requêtes REST en localhost sur le port ':8080'
 
 # Lien complémentaire
+- Github de la partie front
+  - https://github.com/arnoldsoupramanien/upx_campus_front
+
 - Support de présentation
   - https://docs.google.com/presentation/d/11e07NffcVHTvT70Xe0ddBosuIUrTFZc8mPwEL_6lavg/edit?usp=sharing
  
