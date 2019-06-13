@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Collection;
 import java.util.List;
 
 /*
@@ -53,7 +54,7 @@ public class ActiviteController {
     /**
      * Get Liste Batiments de l'activité
      *
-     * @param idA the id a
+     * @param idA the activite id
      * @return Une liste d'entier
      */
     @GetMapping("/batimentsDeActivite/{idA}")
