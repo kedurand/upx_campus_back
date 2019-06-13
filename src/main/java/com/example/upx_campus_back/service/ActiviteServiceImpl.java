@@ -25,6 +25,9 @@ public class ActiviteServiceImpl implements ActiviteService {
     @Autowired
     private ActiviteRepository activiteRepository;
 
+    @Autowired
+    private BatimentRepository batimentRepository;
+
 
     @Override
     public List<Activite> getActivites() {
@@ -61,8 +64,7 @@ public class ActiviteServiceImpl implements ActiviteService {
     @Override
     public List<Batiment> getBatiments(long idActivite){
 
-        return (List<Batiment>)(Object)activiteRepository.findBatimentsByActivite(idActivite) ;
-
+        return batimentRepository.findBatimentsByActivite(idActivite) ;
 
     }
 

@@ -27,16 +27,5 @@ import java.util.List;
 @Repository
 public interface ActiviteRepository extends JpaRepository<Activite, Long> {
 
-    /**
-     * Get Liste Batiments de l'activité
-     *
-     * @param activiteId the activite id
-     * @return Une liste d'entier
-     */
-
-    @Query(value = "SELECT * FROM batiment WHERE id IN (SELECT batiments_id FROM batiment_activites b WHERE b.activites_id = ?1)", nativeQuery = true)
-    /*@Query(value = "SELECT * FROM batiment", nativeQuery = true)*/
-    List<Object> findBatimentsByActivite(long idActivite);
-
 
 }
