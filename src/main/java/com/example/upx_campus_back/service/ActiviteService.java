@@ -2,9 +2,7 @@ package com.example.upx_campus_back.service;
 
 import com.example.upx_campus_back.model.Activite;
 import com.example.upx_campus_back.model.Batiment;
-import org.springframework.data.jpa.repository.Query;
 
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -53,7 +51,8 @@ public interface ActiviteService {
     /**
      * Recuperer la liste des batiments appartenant à l'activité courante
      *
-     * @param activiteId the activite id
+     * @param idActivite the id activite
+     * @return the batiments
      */
     List<Batiment> getBatiments(long idActivite);
 

@@ -1,13 +1,8 @@
 package com.example.upx_campus_back.repository;
 
 import com.example.upx_campus_back.model.Activite;
-import com.example.upx_campus_back.model.Batiment;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
-import java.util.Collection;
-import java.util.List;
 
 // Utilise un framework de Spring, le "Spring Data JPA"
 // Besoin d'uniquement d'étendre la classe JPA avec la classe et le type de l'ID

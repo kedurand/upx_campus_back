@@ -42,6 +42,16 @@ public class Batiment extends AuditModel {
     public Batiment() {
     }
 
+    /**
+     * Instantiates a new Batiment.
+     *
+     * @param nom         the nom
+     * @param lat         the lat
+     * @param lng         the lng
+     * @param image       the image
+     * @param description the description
+     * @param activites   the activites
+     */
     public Batiment(@NotBlank @Size(min = 3, max = 100) String nom, float lat, float lng,
                     String image, String description, Set<Activite> activites) {
         this.nom = nom;
@@ -143,10 +153,20 @@ public class Batiment extends AuditModel {
         this.lng = lng;
     }
 
+    /**
+     * Gets image.
+     *
+     * @return the image
+     */
     public String getImage() {
         return image;
     }
 
+    /**
+     * Sets image.
+     *
+     * @param image the image
+     */
     public void setImage(String image) {
         this.image = image;
     }

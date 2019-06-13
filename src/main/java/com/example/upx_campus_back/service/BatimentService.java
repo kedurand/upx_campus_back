@@ -23,6 +23,12 @@ public interface BatimentService {
      */
     Batiment getBatiment(Long batimentId);
 
+    /**
+     * Get batiment image byte [ ].
+     *
+     * @param batimentId the batiment id
+     * @return the byte [ ]
+     */
     byte[] getBatimentImage(Long batimentId);
 
     /**

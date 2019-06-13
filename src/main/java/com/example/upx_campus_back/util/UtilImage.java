@@ -8,12 +8,21 @@ import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
+/**
+ * The type Util image.
+ */
 public class UtilImage {
     // Chemin du dossier projet
     private static final String PATH_IMAGE_FOLDER =   System.getProperty("user.dir")
                                                     + "\\src\\main\\resources\\images\\";
     private static final String FORMAT_JPG = "jpg";
 
+    /**
+     * Get image file file.
+     *
+     * @param imageName the image name
+     * @return the file
+     */
     public static File getImageFile(String imageName){
         if (imageName == null || imageName.isEmpty()){
             return null;
@@ -28,6 +37,12 @@ public class UtilImage {
         return null;
     }
 
+    /**
+     * Get byte from image file byte [ ].
+     *
+     * @param pFile the p file
+     * @return the byte [ ]
+     */
     public static byte[] getByteFromImageFile(File pFile){
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         BufferedImage bImage = null;
@@ -52,6 +67,12 @@ public class UtilImage {
         return bos.toByteArray();
     }
 
+    /**
+     * Convert byte array to image string.
+     *
+     * @param data the data
+     * @return the string
+     */
     public static String convertByteArrayToImage(byte[] data) {
         String imageName = null;
         String pathImage = PATH_IMAGE_FOLDER;

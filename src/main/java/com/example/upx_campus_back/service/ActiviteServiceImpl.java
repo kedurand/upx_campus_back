@@ -5,10 +5,8 @@ import com.example.upx_campus_back.model.Batiment;
 import com.example.upx_campus_back.repository.ActiviteRepository;
 import com.example.upx_campus_back.repository.BatimentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Component;
 
-import java.util.Collection;
 import java.util.List;
 
 /**
