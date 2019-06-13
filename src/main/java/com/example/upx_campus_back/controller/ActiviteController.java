@@ -1,13 +1,11 @@
 package com.example.upx_campus_back.controller;
 
 import com.example.upx_campus_back.model.Activite;
-import com.example.upx_campus_back.model.Batiment;
 import com.example.upx_campus_back.service.ActiviteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Collection;
 import java.util.List;
 
 /*
@@ -50,17 +48,6 @@ public class ActiviteController {
         return activiteService.getActivite(activiteId);
     }
 
-
-    /**
-     * Get Liste Batiments de l'activité
-     *
-     * @param idA the activite id
-     * @return Une liste d'entier
-     */
-    @GetMapping("/batimentsDeActivite/{idA}")
-    public List<Batiment> getBatiments(@PathVariable long idA){
-        return activiteService.getBatiments(idA);
-    }
 
     /**
      * Add activite activite.

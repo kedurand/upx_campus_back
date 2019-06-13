@@ -32,6 +32,22 @@ public interface BatimentService {
     byte[] getBatimentImage(Long batimentId);
 
     /**
+     * Recuperer la liste des batiments appartenant à l'activité courante
+     *
+     * @param idActivite the id activite
+     * @return the batiments
+     */
+    List<Batiment> getBatimentsByActivite(long idActivite);
+
+    /**
+     * Recuperer la liste des batiments appartenant à la thematique courante courante
+     *
+     * @param idThematique the thematique id
+     * @return the batiments by thematique
+     */
+    List<Batiment> getBatimentsByThematique(long idThematique);
+
+    /**
      * Add batiment batiment.
      *
      * @param batiment the batiment

@@ -54,6 +54,29 @@ public class BatimentController {
     }
 
     /**
+     * Get Liste Batiments de l'activité
+     *
+     * @param idA the activite id
+     * @return Une liste d'entier
+     */
+    @GetMapping("/activite/{idA}")
+    public List<Batiment> getBatimentsByActivite(@PathVariable long idA){
+        return batimentService.getBatimentsByActivite(idA);
+    }
+
+    /**
+     * Get Liste Batiments de la thematique
+     *
+     * @param idT Id de la thematique
+     * @return Une liste d'entier
+     */
+    @GetMapping("/thematique/{idT}")
+    public List<Batiment> getBatimentsByThematique(@PathVariable long idT){
+        return batimentService.getBatimentsByThematique(idT);
+    }
+
+
+    /**
      * Add batiment batiment.
      *
      * @param batiment the batiment

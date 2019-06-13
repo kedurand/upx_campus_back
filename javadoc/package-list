@@ -1,0 +1,7 @@
+com.example.upx_campus_back
+com.example.upx_campus_back.controller
+com.example.upx_campus_back.model
+com.example.upx_campus_back.repository
+com.example.upx_campus_back.security
+com.example.upx_campus_back.service
+com.example.upx_campus_back.util

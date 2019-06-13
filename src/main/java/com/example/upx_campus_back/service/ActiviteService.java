@@ -1,7 +1,6 @@
 package com.example.upx_campus_back.service;
 
 import com.example.upx_campus_back.model.Activite;
-import com.example.upx_campus_back.model.Batiment;
 
 import java.util.List;
 
@@ -47,13 +46,4 @@ public interface ActiviteService {
      * @param activiteId the activite id
      */
     void deleteActivite(Long activiteId);
-
-    /**
-     * Recuperer la liste des batiments appartenant à l'activité courante
-     *
-     * @param idActivite the id activite
-     * @return the batiments
-     */
-    List<Batiment> getBatiments(long idActivite);
-
 }

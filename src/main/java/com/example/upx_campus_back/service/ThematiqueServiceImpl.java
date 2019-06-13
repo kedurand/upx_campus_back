@@ -1,8 +1,6 @@
 package com.example.upx_campus_back.service;
 
-import com.example.upx_campus_back.model.Batiment;
 import com.example.upx_campus_back.model.Thematique;
-import com.example.upx_campus_back.repository.BatimentRepository;
 import com.example.upx_campus_back.repository.ThematiqueRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,9 +16,6 @@ public class ThematiqueServiceImpl implements ThematiqueService {
     // Autowired permet de le construire automatiquement ?
     @Autowired
     private ThematiqueRepository thematiqueRepository;
-
-    @Autowired
-    private BatimentRepository batimentRepository;
 
 
     @Override
@@ -52,10 +47,5 @@ public class ThematiqueServiceImpl implements ThematiqueService {
     @Override
     public void deleteThematique(Long thematiqueId) {
         thematiqueRepository.deleteById(thematiqueId);
-    }
-
-    @Override
-    public List<Batiment> getBatiments(long idThematique) {
-        return batimentRepository.findBatimentsByThematique(idThematique) ;
     }
 }

@@ -50,6 +50,16 @@ public class BatimentServiceImpl implements BatimentService {
     }
 
     @Override
+    public List<Batiment> getBatimentsByActivite(long idActivite){
+        return batimentRepository.findBatimentsByActivite(idActivite) ;
+    }
+
+    @Override
+    public List<Batiment> getBatimentsByThematique(long idThematique) {
+        return batimentRepository.findBatimentsByThematique(idThematique) ;
+    }
+
+    @Override
     public Batiment addBatiment(Batiment batiment) {
         return batimentRepository.save(batiment);
     }
