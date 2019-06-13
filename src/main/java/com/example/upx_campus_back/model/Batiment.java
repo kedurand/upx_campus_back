@@ -1,13 +1,10 @@
 package com.example.upx_campus_back.model;
 
-import com.example.upx_campus_back.util.ImageUtil;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.awt.*;
-import java.util.Arrays;
 import java.util.Set;
 
 

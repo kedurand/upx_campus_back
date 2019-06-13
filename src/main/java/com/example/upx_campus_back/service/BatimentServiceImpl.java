@@ -2,10 +2,11 @@ package com.example.upx_campus_back.service;
 
 import com.example.upx_campus_back.model.Batiment;
 import com.example.upx_campus_back.repository.BatimentRepository;
-import com.example.upx_campus_back.util.ImageUtil;
+import com.example.upx_campus_back.util.UtilImage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
 import java.util.Base64;
 import java.util.List;
 
@@ -37,9 +38,13 @@ public class BatimentServiceImpl implements BatimentService {
             that needs be stored and transferred over media that are designed to deal with textual data.
             This is to ensure that the data remains intact without modification during transport.
          */
-        byte[] encoded = new byte[0];
-        if (bat != null) {
-            encoded = Base64.getEncoder().encode(ImageUtil.getByteFromImage(bat.getImage()));
+        byte[] encoded = null;
+        // On vérifie que le batiment existe et que son image également est enregistrée
+        if (bat != null && !bat.getImage().isEmpty()) {
+            File file = UtilImage.getImageFile(bat.getImage());
+            if(file!=null){
+                encoded = Base64.getEncoder().encode(UtilImage.getByteFromImageFile(file));
+            }
         }
         return encoded;
     }

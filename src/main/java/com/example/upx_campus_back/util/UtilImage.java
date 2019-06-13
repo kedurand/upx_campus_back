@@ -1,7 +1,5 @@
 package com.example.upx_campus_back.util;
 
-import org.hibernate.id.GUIDGenerator;
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -10,28 +8,36 @@ import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
-public class ImageUtil{
+public class UtilImage {
     // Chemin du dossier projet
     private static final String PATH_IMAGE_FOLDER =   System.getProperty("user.dir")
                                                     + "\\src\\main\\resources\\images\\";
     private static final String FORMAT_JPG = "jpg";
 
-    public static byte[] getByteFromImage(String imageName){
-        if (imageName == null || imageName.isEmpty()) return null;
-
+    public static File getImageFile(String imageName){
+        if (imageName == null || imageName.isEmpty()){
+            return null;
+        }
         String pathImage = PATH_IMAGE_FOLDER + imageName;
+        File file = new File(pathImage);
 
+        if(file.exists() && !file.isDirectory()) {
+            return file;
+        }
+
+        return null;
+    }
+
+    public static byte[] getByteFromImageFile(File pFile){
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         BufferedImage bImage = null;
-        File file = new File(pathImage);
         try {
-            bImage = ImageIO.read(file);
+            bImage = ImageIO.read(pFile);
         }
         catch (IOException e) {
             e.printStackTrace();
         }
-
-        switch(getFileExtension(file).toLowerCase()){
+        switch(getFileExtension(pFile).toLowerCase()){
             case FORMAT_JPG:
                 try {
                     ImageIO.write(bImage, FORMAT_JPG, bos);
@@ -42,9 +48,7 @@ public class ImageUtil{
                 break;
             default:
                 break;
-
         }
-
         return bos.toByteArray();
     }
 

@@ -1,12 +1,10 @@
 package com.example.upx_campus_back.repository;
 
 import com.example.upx_campus_back.model.Activite;
-import com.example.upx_campus_back.model.Batiment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.Collection;
 import java.util.List;
 
 // Utilise un framework de Spring, le "Spring Data JPA"
@@ -30,7 +28,7 @@ public interface ActiviteRepository extends JpaRepository<Activite, Long> {
     /**
      * Get Liste Batiments de l'activité
      *
-     * @param activiteId the activite id
+     * @param idActivite the activite id
      * @return Une liste d'entier
      */
 
