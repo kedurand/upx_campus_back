@@ -2,7 +2,7 @@
 Partie BACK-END de l'application de localisation des ressources de l'université Paris Nanterre.
 
 ## Récupération de l'application
-- Clonez sur votre IDE, de préférence IntelliJ dans sa version Ultimate (licence gratuite pour étudiant).
+- Clonez le projet en récupérant le lien du repository sur votre IDE, de préférence IntelliJ dans sa version Ultimate (licence gratuite pour étudiant).
 - Connectez le service web à votre base de donnée (ici, PostgreSQL).
   - Modifiez les informations de connexion dans le fichier "application.properties".
   - Dans le cas d'une base de données PostgreSQL hébergé sur Google Cloud, vérifier les pré-requis de connexions sont respectés.
